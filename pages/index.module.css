@@ -1,0 +1,33 @@
+.carousel {
+  background-color: blue;
+  height: 95vh;
+  position: relative;
+  top: 10rem;
+}
+
+.carousel .carousel_arrow {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  height: 2rem;
+  stroke: white;
+  transition: all 0.5s ease-in-out;
+}
+
+.carousel .carousel_arrow.prev {
+  left: 5%;
+  transform: translate(-50%, -50%) rotate(270deg);
+}
+
+.carousel .carousel_arrow.prev:hover {
+  transform: scale(110%) translate(-50%, -50%) rotate(270deg);
+}
+
+.carousel .carousel_arrow.next {
+  left: 95%;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.carousel .carousel_arrow.next:hover {
+  transform: scale(110%) translate(-50%, -50%) rotate(90deg);
+}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./navbar.module.css";
 
 function navbar() {
@@ -7,18 +8,18 @@ function navbar() {
         <img src="/images/logo.svg" alt="Logo do Spend Smart"></img>
       </div>
       <div className={styles.navigation}>
-        <ul className={styles.links}>          
+        <ul className={styles.links}>
           <li>
-            <a href="...">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <a href="...">Sobre</a>
+            <Link href="/about">Sobre</Link>
           </li>
           <li>
-            <a href="...">Contatos</a>
+            <Link href="/contact">Contatos</Link>
           </li>
           <li>
-            <a href="...">Login</a>
+            <Link href="/login">Login</Link>
           </li>
         </ul>
       </div>
