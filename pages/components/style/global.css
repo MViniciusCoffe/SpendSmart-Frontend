@@ -84,19 +84,8 @@ video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a,
-span,
-p {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  vertical-align: baseline;
 }
 
 article,
