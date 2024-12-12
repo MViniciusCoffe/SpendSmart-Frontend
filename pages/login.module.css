@@ -51,6 +51,7 @@
   flex-direction: column;
   width: 100%;
   gap: 0.5rem;
+  padding-top: 1rem;
 }
 
 .input_group label {
@@ -77,4 +78,10 @@
   position: absolute;
   left: 1rem;
   top: 1rem;
+}
+
+.error_message {
+  color: red;
+  padding-top: 1rem;
+  font-size: 0.75rem;
 }
