@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./login.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -14,6 +14,16 @@ function login() {
 
   // Estado para armazenar mensagem de erro
   const [errorMessage, setErrorMessage] = useState("");
+
+  // Use Effect para redirecionar o usuário para "/dashboard" caso ele esteja logado
+  useEffect(() => {
+    const token = Cookies.get("authToken");
+    const email = Cookies.get("userEmail");
+
+    if (token && email) {
+      router.push("/dashboard");
+    }
+  }, []);
 
   // Função para fazer a requisição na rota auth
   const handleLogin = async (e) => {
@@ -35,7 +45,8 @@ function login() {
 
       // Salva o token do usuário
       const token = response.data.token;
-      Cookies.get("authToken", token, { expires: 7 });
+      Cookies.set("userEmail", email, { expires: 7 });
+      Cookies.set("authToken", token, { expires: 7 });
 
       // Redireciona o usuário para /dashboard
       setErrorMessage("");
@@ -97,10 +108,11 @@ function login() {
                 type="submit"
                 className={styles.login_button}
                 onClick={(e) => handleLogin(e)}
+                disabled={!email || !senha}
               >
                 Entrar
               </button>
-              <Link href="app.js" className={styles.create_button}>
+              <Link href="register" className={styles.create_button}>
                 Criar conta
               </Link>
             </div>

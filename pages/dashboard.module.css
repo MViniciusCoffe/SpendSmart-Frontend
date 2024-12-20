@@ -1,0 +1,95 @@
+.exit_button {
+  color: red;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  filter: drop-shadow(0 0 0.15rem black);
+  transition: all 0.5s ease-in-out;
+  border: 1px solid red;
+}
+
+.exit_button:hover {
+  color: white;
+  background-color: red;
+}
+
+.app_content {
+  height: 100vh;
+  padding: 5rem 2rem;
+}
+
+.status_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.status_content .metric {
+  display: flex;
+  background-color: #e1e2d5;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  filter: drop-shadow(0 0 0.15rem rgba(0, 0, 0, 0.397));
+}
+
+.status_content .metric .metric_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+}
+
+.status_content .metric img {
+  height: 100%;
+  width: 100%;
+  background-color: #e1e2d5;
+}
+
+.status_content .metric div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+}
+
+.dashboards_content {
+  display: flex;
+  width: 100%;
+  height: 25rem;
+}
+
+.dashboard_donut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2rem;
+  width: 30%;
+  background-color: #e1e2d5;
+  height: 22.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  filter: drop-shadow(0 0 0.15rem rgba(0, 0, 0, 0.397));
+}
+
+.dashboard_donut h3 {
+  font-size: 1.5rem;
+}
+
+.dashboard_lines {
+  margin: 0 2rem;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e1e2d5;
+  height: 22.5rem;
+  border-radius: 0.25rem;
+  filter: drop-shadow(0 0 0.15rem rgba(0, 0, 0, 0.397));
+}
+
+.dashboard_lines h3 {
+  font-size: 1.5rem;
+}
