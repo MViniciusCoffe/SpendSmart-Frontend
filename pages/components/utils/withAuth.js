@@ -7,10 +7,15 @@ const withAuth = (WrappedComponent) => {
     const router = useRouter();
 
     useEffect(() => {
-      const token = Cookies.get("authToken");
-      const email = Cookies.get("userEmail")
+      try {
+        const token = Cookies.get("authToken");
+        const user = JSON.parse(Cookies.get("user"));
 
-      if (!token || !email) {
+        // Verifica se o token de autenticação e o usuário estão presentes, se não, redireciona para Login
+        if (!token || !user) {
+          router.push("/login");
+        }
+      } catch (error) {
         router.push("/login");
       }
     }, []);

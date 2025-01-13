@@ -49,10 +49,10 @@
   border-radius: 0.5rem;
 }
 
-.navbar .navigation .links li:nth-child(4) {
+.navbar .navigation .links li {
   transition: all 0.5s ease-in-out;
 }
 
-.navbar .navigation .links li:nth-child(4):hover {
+.navbar .navigation .links li:hover {
   transform: scale(110%);
 }

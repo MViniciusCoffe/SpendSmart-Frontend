@@ -11,7 +11,7 @@ function navbarApp() {
     e.preventDefault();
 
     Cookies.remove("authToken");
-    Cookies.remove("userEmail");
+    Cookies.remove("user");
     router.push("/login");
   };
 
@@ -26,10 +26,13 @@ function navbarApp() {
             <Link href="/dashboard">Dashboard</Link>
           </li>
           <li>
-            <Link href="/rent">Cadastrar Renda</Link>
+            <Link href="/rendaPage">Cadastrar Receitas</Link>
           </li>
           <li>
-            <Link href="/spent">Cadastrar Gastos</Link>
+            <Link href="/gastosPage">Cadastrar Gastos</Link>
+          </li>
+          <li>
+            <Link href="/categoriaPage">Configurar Categorias</Link>
           </li>
           <li>
             <Link href="/accountConfig">Configurações da conta</Link>

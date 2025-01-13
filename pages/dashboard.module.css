@@ -15,7 +15,38 @@
 
 .app_content {
   height: 100vh;
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
+}
+
+.user_content {
+  border-radius: 0.25rem;
+  margin: 0 2rem;
+  display: flex;
+  align-items: center;
+  background-color: #e1e2d5;
+  filter: drop-shadow(0 0 0.15rem rgba(0, 0, 0, 0.397));
+  justify-content: space-between;
+}
+
+.user {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user_image {
+  margin-top: 0.5rem;
+  border: 1px solid black;
+  border-radius: 100%;
+  width: 5rem;
+  height: 5rem;
+}
+
+.user_image img {
+  height: 100%;
+  border-radius: 100%;
 }
 
 .status_content {

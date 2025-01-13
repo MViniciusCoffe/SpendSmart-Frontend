@@ -3,6 +3,7 @@ import withAuth from "./components/utils/withAuth";
 import styles from "./dashboard.module.css";
 import Navbar from "./components/Navbar/navbarApp.js";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function dashboard() {
   const [dados, setDados] = useState({
@@ -10,7 +11,21 @@ function dashboard() {
     totalReceitas: null,
     totalGastos: null,
   });
+
   const [error, setError] = useState(false);
+
+  const [nomeUsuario, setNomeUsuario] = useState("Sem dados");
+
+  useEffect(() => {
+    const userCookie = Cookies.get("user");
+
+    if (userCookie) {
+      // Converter de string JSON para objeto
+      const user = JSON.parse(userCookie);
+      // Atualiza o estado com o nome do usuário
+      setNomeUsuario(user.nome_completo || "Sem dados");
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +38,7 @@ function dashboard() {
         });
         setError(false);
       } catch (error) {
-        setError(true); // Indica que ocorreu um erro na requisição
+        setError(true);
       }
     };
 
@@ -34,7 +49,16 @@ function dashboard() {
     <>
       <Navbar />
       <div className={styles.app_content}>
-        <h1>Dashboard</h1>
+        <div className={styles.user_content}>
+          <div className={styles.filter}></div>
+          <div className={styles.user}>
+            {/* Ajeitar bug que o nome não atualiza no dashboard quando eu atualizo no banco de dados */}
+            <h1>Olá! {nomeUsuario}</h1>
+            <div className={styles.user_image}>
+              <img src="/images/profile-icon.jpg" alt="Imagem Perfil" />
+            </div>
+          </div>
+        </div>
         <div className={styles.status_content}>
           <div className={styles.metric}>
             <div className={styles.metric_img}>
@@ -43,7 +67,11 @@ function dashboard() {
             <div>
               <h3>Saldo atual</h3>
               {/* Renderiza "Sem dados disponíveis" caso não tenha saldo */}
-              <p>{error || dados.saldo === null ? "Sem dados disponíveis" : `R$ ${dados.saldo}`}</p>
+              <p>
+                {error || dados.saldo === null
+                  ? "Sem dados disponíveis"
+                  : `R$ ${dados.saldo}`}
+              </p>
             </div>
           </div>
           <div className={styles.metric}>
@@ -53,7 +81,11 @@ function dashboard() {
             <div>
               <h3>Total em Receitas</h3>
               {/* Renderiza "Sem dados disponíveis" caso não tenha receitas */}
-              <p>{error || dados.totalReceitas === null ? "Sem dados disponíveis" : `R$ ${dados.totalReceitas}`}</p>
+              <p>
+                {error || dados.totalReceitas === null
+                  ? "Sem dados disponíveis"
+                  : `R$ ${dados.totalReceitas}`}
+              </p>
             </div>
           </div>
           <div className={styles.metric}>
@@ -63,7 +95,11 @@ function dashboard() {
             <div>
               <h3>Total em Gastos</h3>
               {/* Renderiza "Sem dados disponíveis" caso não tenha gastos */}
-              <p>{error || dados.totalGastos === null ? "Sem dados disponíveis" : `R$ ${dados.totalGastos}`}</p>
+              <p>
+                {error || dados.totalGastos === null
+                  ? "Sem dados disponíveis"
+                  : `R$ ${dados.totalGastos}`}
+              </p>
             </div>
           </div>
         </div>

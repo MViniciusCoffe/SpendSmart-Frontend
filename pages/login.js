@@ -18,9 +18,9 @@ function login() {
   // Use Effect para redirecionar o usuário para "/dashboard" caso ele esteja logado
   useEffect(() => {
     const token = Cookies.get("authToken");
-    const email = Cookies.get("userEmail");
+    const user = Cookies.get("user");
 
-    if (token && email) {
+    if (token && user) {
       router.push("/dashboard");
     }
   }, []);
@@ -45,7 +45,9 @@ function login() {
 
       // Salva o token do usuário
       const token = response.data.token;
-      Cookies.set("userEmail", email, { expires: 7 });
+      const user = JSON.stringify(response.data.user);
+
+      Cookies.set("user", user, { expires: 7 });
       Cookies.set("authToken", token, { expires: 7 });
 
       // Redireciona o usuário para /dashboard

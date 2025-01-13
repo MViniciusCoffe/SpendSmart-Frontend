@@ -54,13 +54,14 @@ function register() {
           );
 
           const token = response.data.token;
-          Cookies.set("userEmail", email, { expires: 7 });
+          const user = JSON.stringify(response.data.user);
+
+          Cookies.set("user", user, { expires: 7 });
           Cookies.set("authToken", token, { expires: 7 });
           setErrorMessage("");
           router.push("/dashboard");
         } catch (error) {
-          console.log(error);
-          alert("aqui");
+          alert(error);
           if (!error?.response) {
             setErrorMessage("Erro ao acessar o servidor");
           }
@@ -145,6 +146,7 @@ function register() {
                   name="telefone"
                   placeholder="Digite seu telefone (opcional)"
                   value={telefone}
+                  maxLength={20}
                   onChange={(e) => setTelefone(e.target.value)}
                 />
               </div>

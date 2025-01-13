@@ -21,10 +21,10 @@ function accountConfig() {
   // Função para editar o usuário
   const handleEdit = async (e) => {
     e.preventDefault();
-  
-    const userEmail = Cookies.get("userEmail");
+
+    const userEmail = JSON.parse(Cookies.get("user")).email;
     const authToken = Cookies.get("authToken");
-  
+
     try {
       const updatedData = {
         nome_completo: nome || null,
@@ -32,11 +32,12 @@ function accountConfig() {
         data_nascimento: dataNascimento || null,
         telefone: telefone || null,
       };
-  
+
+      // Filtrar dados não preenchidos, removendo campos não preenchidos
       const filteredData = Object.fromEntries(
         Object.entries(updatedData).filter(([_, v]) => v !== null)
       );
-  
+
       const response = await axios.put(
         `http://localhost:5000/user/${userEmail}`,
         filteredData,
@@ -47,9 +48,13 @@ function accountConfig() {
           },
         }
       );
-  
-      alert("Alterações salvas com sucesso!");
+
+      // Substitui o cookie antigo pelo novo com o usuário atualizado
+      const updatedUser = JSON.stringify(response.data.updatedUser);
+      Cookies.set("user", updatedUser, { expires: 7 });
+
       setErrorMessage("");
+      alert("Alterações salvas com sucesso!");
     } catch (error) {
       if (!error?.response) {
         setErrorMessage("Erro ao acessar o servidor");
@@ -65,8 +70,8 @@ function accountConfig() {
   const handleDelete = async (e) => {
     e.preventDefault();
 
-    const userEmail = Cookies.get("userEmail");
     const authToken = Cookies.get("authToken");
+    const userEmail = JSON.parse(Cookies.get("user")).email;
 
     try {
       const response = await axios.delete(
@@ -79,11 +84,13 @@ function accountConfig() {
       alert("Conta deletada com sucesso");
 
       Cookies.remove("authToken");
-      Cookies.remove("userEmail");
+      Cookies.remove("user");
       router.push("/login");
     } catch (error) {
       if (!error?.response) {
         setErrorMessage("Erro ao acessar o servidor");
+      } else {
+        setErrorMessage("Operação não autorizada");
       }
     }
   };
@@ -141,6 +148,7 @@ function accountConfig() {
               type="text"
               id="telefone"
               placeholder="Seu telefone"
+              maxLength={20}
               onChange={(e) => setTelefone(e.target.value)}
             />
           </div>
