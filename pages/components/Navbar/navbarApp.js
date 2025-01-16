@@ -26,10 +26,10 @@ function navbarApp() {
             <Link href="/dashboard">Dashboard</Link>
           </li>
           <li>
-            <Link href="/rendaPage">Cadastrar Receitas</Link>
+            <Link href="/rendaPage">Configurar Receitas</Link>
           </li>
           <li>
-            <Link href="/gastosPage">Cadastrar Gastos</Link>
+            <Link href="/gastosPage">Configurar Despesas</Link>
           </li>
           <li>
             <Link href="/categoriaPage">Configurar Categorias</Link>

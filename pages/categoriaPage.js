@@ -128,6 +128,7 @@ function categoriaPage() {
     }
   };
 
+  // Função para deletar categoria
   const handleDelete = async (e) => {
     e.preventDefault();
 
@@ -159,6 +160,7 @@ function categoriaPage() {
     }
   };
 
+  // Função para editar categoria
   const handleEdit = async (e) => {
     e.preventDefault();
 
