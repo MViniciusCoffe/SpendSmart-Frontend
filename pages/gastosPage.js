@@ -92,8 +92,6 @@ function gastosPage() {
             },
           });
 
-          console.log(response);
-
           // Filtrar Gastos pelo usuário
           const gastosFiltrados = response.data.filter(
             (gasto) => gasto.usuario_id === userId
@@ -221,7 +219,7 @@ function gastosPage() {
             <h1 className={styles.content_h1}>Adicionar Despesa</h1>
 
             <div className={styles.form_group}>
-              <label className={styles.input_title} htmlFor="detalhe_categoria">
+              <label className={styles.input_title} htmlFor="nome_despesa">
                 Nome da Despesa
               </label>
               <input
@@ -385,7 +383,7 @@ function gastosPage() {
               <div className={styles.category_details}>
                 <h2>Detalhes da Despesa</h2>
                 <p>
-                  <strong>Detalhe Categoria:</strong>{" "}
+                  <strong>Nome da Despesa:</strong>{" "}
                   {expenseDetails?.nome || "Sem dados"}
                 </p>
                 <p>
