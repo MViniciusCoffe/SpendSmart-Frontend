@@ -53,7 +53,7 @@ function rendaPage() {
     if (activeTab === "add") {
       const fetchCategorias = async () => {
         try {
-          const response = await axios.get("http://localhost:5000/category", {
+          const response = await axios.get("http://54.227.20.33:5000/category", {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer: ${authToken}`,
@@ -85,7 +85,7 @@ function rendaPage() {
     if (activeTab === "delete") {
       const fetchReceita = async () => {
         try {
-          const response = await axios.get("http://localhost:5000/income", {
+          const response = await axios.get("http://54.227.20.33:5000/income", {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer: ${authToken}`,
@@ -115,7 +115,7 @@ function rendaPage() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/income",
+        "http://54.227.20.33:5000/income",
         JSON.stringify({
           categorySelected,
           userId,
@@ -150,7 +150,7 @@ function rendaPage() {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5000/income/${incomeSelected}`,
+        `http://54.227.20.33:5000/income/${incomeSelected}`,
         {
           headers: {
             "Content-Type": "application/json",

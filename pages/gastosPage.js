@@ -53,7 +53,7 @@ function gastosPage() {
     if (activeTab === "add") {
       const fetchCategorias = async () => {
         try {
-          const response = await axios.get("http://localhost:5000/category", {
+          const response = await axios.get("http://54.227.20.33:5000/category", {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer: ${authToken}`,
@@ -85,7 +85,7 @@ function gastosPage() {
     if (activeTab === "delete") {
       const fetchGastos = async () => {
         try {
-          const response = await axios.get("http://localhost:5000/spend", {
+          const response = await axios.get("http://54.227.20.33:5000/spend", {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer: ${authToken}`,
@@ -115,7 +115,7 @@ function gastosPage() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/spend",
+        "http://54.227.20.33:5000/spend",
         JSON.stringify({
           categorySelected,
           userId,
@@ -150,7 +150,7 @@ function gastosPage() {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5000/spend/${expenseSelected}`,
+        `http://54.227.20.33:5000/spend/${expenseSelected}`,
         {
           headers: {
             "Content-Type": "application/json",

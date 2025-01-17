@@ -39,7 +39,7 @@ function accountConfig() {
       );
 
       const response = await axios.put(
-        `http://localhost:5000/user/${userEmail}`,
+        `http://54.227.20.33:5000/user/${userEmail}`,
         filteredData,
         {
           headers: {
@@ -75,7 +75,7 @@ function accountConfig() {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5000/user/${userEmail}`,
+        `http://54.227.20.33:5000/user/${userEmail}`,
         {
           headers: { Authorization: `Bearer ${authToken}` },
         }

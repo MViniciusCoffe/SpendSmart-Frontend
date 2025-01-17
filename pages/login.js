@@ -36,7 +36,7 @@ function login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/auth",
+        "http://54.227.20.33:5000/auth",
         JSON.stringify({ email, senha }),
         {
           headers: { "Content-Type": "application/json" },

@@ -57,7 +57,7 @@ function dashboard() {
 
     const fetchData = async () => {
       try {
-        const responseIncome = await axios.get("http://localhost:5000/income", {
+        const responseIncome = await axios.get("http://54.227.20.33:5000/income", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer: ${authToken}`,
@@ -70,7 +70,7 @@ function dashboard() {
         );
         setIncomes(incomes);
 
-        const responseSpend = await axios.get("http://localhost:5000/spend", {
+        const responseSpend = await axios.get("http://54.227.20.33:5000/spend", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer: ${authToken}`,
@@ -117,7 +117,7 @@ function dashboard() {
 
     const fetchCategorias = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/category", {
+        const response = await axios.get("http://54.227.20.33:5000/category", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer: ${authToken}`,
@@ -410,7 +410,7 @@ function dashboard() {
           </div>
 
           <div className={styles.dashboard_donut}>
-            <h3>Total de Despesas por Categoria</h3>
+            <h3>Total de Despesas por Nome</h3>
             <div>
               {dados.totalGastos === 0 || categories.length === 0 ? (
                 "Sem dados disponíveis"
@@ -423,9 +423,9 @@ function dashboard() {
 
         <div className={styles.dashboards_content}>
           <div className={styles.dashboard_donut}>
-            <h3>Total de Despesas por Categoria</h3>
+            <h3>Total de Receitas por Categoria</h3>
             <div>
-              {dados.totalGastos === 0 || categories.length === 0 ? (
+              {dados.totalReceitas === 0 || categories.length === 0 ? (
                 "Sem dados disponíveis"
               ) : (
                 <Doughnut data={incomesCategoryChart()} />
@@ -434,9 +434,9 @@ function dashboard() {
           </div>
 
           <div className={styles.dashboard_donut}>
-            <h3>Total de Despesas por Categoria</h3>
+            <h3>Total de Receitas por Fonte de Renda</h3>
             <div>
-              {dados.totalGastos === 0 || categories.length === 0 ? (
+              {dados.totalReceitas === 0 || categories.length === 0 ? (
                 "Sem dados disponíveis"
               ) : (
                 <Doughnut data={incomesChart()} />

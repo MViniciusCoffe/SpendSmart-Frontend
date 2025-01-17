@@ -46,7 +46,7 @@ function categoriaPage() {
     if (activeTab === "delete") {
       const fetchCategorias = async () => {
         try {
-          const response = await axios.get("http://localhost:5000/category", {
+          const response = await axios.get("http://54.227.20.33:5000/category", {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer: ${authToken}`,
@@ -70,7 +70,7 @@ function categoriaPage() {
     if (activeTab === "edit") {
       const fetchCategorias = async () => {
         try {
-          const response = await axios.get("http://localhost:5000/category", {
+          const response = await axios.get("http://54.227.20.33:5000/category", {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer: ${authToken}`,
@@ -99,7 +99,7 @@ function categoriaPage() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/category",
+        "http://54.227.20.33:5000/category",
         JSON.stringify({
           nome,
           tipo,
@@ -134,7 +134,7 @@ function categoriaPage() {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5000/category/${categorySelected}`,
+        `http://54.227.20.33:5000/category/${categorySelected}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -166,7 +166,7 @@ function categoriaPage() {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/category/${categoryUpdateSelected}`,
+        `http://54.227.20.33:5000/category/${categoryUpdateSelected}`,
         JSON.stringify({
           editNome,
           editTipo,
